@@ -1,12 +1,13 @@
 package com.digifianz.financetool.entity
 
 import javax.persistence.Entity
-import javax.persistence.GeneratedValue
-import javax.persistence.Id
+import javax.persistence.OneToMany
 
 @Entity(name = "team")
 class TeamEntity(
     var name: String,
+    @OneToMany var projects: MutableList<ProjectEntity> = mutableListOf(),
+) : DatabaseEntity() {
 
-    @Id @GeneratedValue var id: Long? = null
-)
+
+}
